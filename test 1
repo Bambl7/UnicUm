@@ -1,1 +1,35 @@
+Mihailov Ivan, X-72
+task 1:
+# Первая молекула
+length1=int(input("Введите длину в нанометрах"))
+width1=int(input("Введите ширину в нанометрах"))
+height1=int(input("Введите высота в нанометрах"))
+# Вторая молекула
+length2=int(input("Введите длину в нанометрах"))
+width2=int(input("Введите ширину в нанометрах"))
+height2=int(input("Введите высота в нанометрах"))
+# Функция для объема этой страшной фигуры
+def volume(length,width,height):
+    return  length*width*height
+#Объем
+volume1=volume(length1,width1,height1)
+volume2=volume(length2,width2,height2)
+#Сравним
+if volume1 > volume2:
+    print("Объем первой молекулы больше")
+elif volume1 < volume2:
+    print("Oбъем второй молекулы больше")
+else:
+    print("Объемы равны, пиши другое")
+task 2:
+height = 7
+width = height + 2
+spaces = width //4
+for i in range(1, height+1):
+    if (i <= spaces):
+        print(" " * (spaces-i) + "*" * (2*i) + " " * (width-2*i-2*spaces) + "*" *(2*i) + " " * (spaces-i))
+    else:
+      print(" " * (i - 2*spaces+1) + "*" * (width-2*(i-2*spaces+1)) + " " * (i - 2*spaces+1))
+
+
 
