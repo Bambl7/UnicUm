@@ -9,3 +9,51 @@ print(df_excel.head())
 
 # Посмотреть информацию о таблице
 print(df_excel.info())
+
+import pandas as pd
+
+#Чтение Excel-файла
+df_excel = pd.read_excel('Тудум.xlsx')
+
+#Посмотреть первые 5 строк
+print(df_excel.head())
+
+#Посмотреть информацию о таблице
+print(df_excel.info())
+
+#Чтение Excel-файла
+df_excel = pd.read_excel('Тудум.xlsx')
+
+#Посмотреть первые 5 строк
+print(df_excel.sample())
+
+#Посмотреть информацию о таблице
+print(df_excel.info())
+
+index=int(input())
+
+
+
+user_inputs = []  # Создаем пустой список для хранения введенных чисел
+
+while True:
+    user_input = input("Введите число (или введите 'exit' для выхода): ")
+
+    if user_input.lower() == 'exit':  # Проверяем, ввел ли пользователь 'exit'
+        print("Выход из программы.")
+        break
+
+    try:
+        number = int(user_input)  # Пробуем преобразовать ввод в целое число
+        user_inputs.append(number)  # Добавляем число в список
+        print(f"Вы ввели число: {number}")
+    except ValueError:
+        print("Пожалуйста, введите корректное число или 'exit' для выхода.")
+
+print("Список введенных чисел:", user_inputs)
+
+df_excel = pd.read_excel('Тудум.xlsx')
+
+print(df_excel.iloc[user_inputs])
+
+
