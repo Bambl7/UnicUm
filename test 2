@@ -1,0 +1,65 @@
+#1
+import pandas as pd
+
+# Загрузка данных из файла Excel
+file_path = 'Лист XLSX.xlsx'  # Убедитесь, что файл находится в той же директории, что и скрипт
+df = pd.read_excel(file_path)
+
+# Вывод DataFrame
+print("Вот ваши данные:")
+print(df)
+
+# Запрос индекса строки у пользователя (начиная с 1)
+index = int(input("Введите индекс строки, которую хотите увидеть (1-{}) : ".format(len(df))))
+
+# Преобразование индекса для использования с iloc (индексы в iloc начинаются с 0)
+index -= 1
+
+# Проверка, что индекс в пределах допустимого диапазона
+if 0 <= index < len(df):
+    print("Выбранная строка:")
+    print(df.iloc[index])
+
+#2
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Шаг 1: Считываем данные из Excel
+file_path = 'Лист XLSX.xlsx'  # Путь к файлу Excel
+df = pd.read_excel(file_path)
+
+# Проверяем структуру данных
+print(df.head())  # Вывод первых строк для проверки
+
+# Шаг 2: Построение графика
+plt.figure(figsize=(8, 6))  # Размер окна графика
+
+# Используем данные из DataFrame
+plt.plot(df['x'], df['y'], marker='o', label='Зависимость y от x')
+
+# Настройка графика
+plt.title('График из Excel')
+plt.xlabel('Ось X')
+plt.ylabel('Ось Y')
+plt.legend()
+plt.grid(True)  # Включить сетку
+
+# Шаг 3: Отображаем график
+plt.show()
+
+#3
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Загружаем данные
+df = pd.read_excel("Лист XLSX.xlsx")  # Укажи свой файл
+x = df["x"]
+y = df["y"]
+z = df["z"]
+
+# Построение 3D-точек
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.scatter(x, y, z, c=z, cmap='coolwarm')  # Точки окрашены по значению z
+
+plt.show()
