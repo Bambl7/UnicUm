@@ -1,0 +1,13 @@
+import requests
+from bs4 import BeautifulSoup
+st_accept = "text/html"
+st_useragent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 12_3_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Safari/605.1.15"
+headers = {
+   "Accept": st_accept,
+   "User-Agent": st_useragent
+}
+req = requests.get("https://music.yandex.ru/playlists/lk.e5ede962-fca3-4e87-9c8e-80e2d9319848", headers)
+src = req.text
+soup = BeautifulSoup(src, "html.parser")
+song_names = soup.find_all(class_="_MWOVuZRvUQdXKTMcOPx Z_WIr2W8JU4MPQek3hgR _3_Mxw7Si7j2g4kWjlpR Meta_text__Y5uYH Meta_title__GGBnH")
+print([i.text for i in song_names])
